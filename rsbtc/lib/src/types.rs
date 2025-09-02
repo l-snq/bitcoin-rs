@@ -1,5 +1,6 @@
 use crate::U256;
 use uuid::Uuid;
+use chrono::{DateTime, Utc};
 
 pub struct Blockchain {
     pub blocks: Vec<Block>,
@@ -12,7 +13,7 @@ pub struct Block {
 
 pub struct BlockHeader {
     /// Timestamp of the block
-    pub timestamp: u64,
+    pub timestamp: DateTime<Utc>,
     /// Nonce used to mine the block
     pub nonce: u64,
     /// Hash of the previous block
@@ -67,7 +68,7 @@ impl Block {
 
 impl BlockHeader {
     pub fn new(
-        timestamp: u64,
+        timestamp: DateTime<Utc>,
         nonce: u64,
         prev_block_hash: [u8; 32],
         merkle_root: [u8; 32],
@@ -98,4 +99,10 @@ impl Transaction {
             outputs: outputs,
         }
     }
+
+    pub fn hash(&self) -> ! {
+        unimplemented!()
+    }
+
+
 }
