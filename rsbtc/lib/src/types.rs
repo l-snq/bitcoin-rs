@@ -2,12 +2,12 @@ use crate::U256;
 
 pub struct Blockchain {
     pub blocks: Vec<Block>,
-};
+}
 
 pub struct Block {
     pub header: BlockHeader,
     pub transactions: Vec<Transaction>,
-};
+}
 
 pub struct BlockHeader {
     pub timestamp: u64,
@@ -15,7 +15,7 @@ pub struct BlockHeader {
     pub prev_block_hash: [u8; 32],
     pub merkle_root: [u8; 32],
     pub target: U256,
-};
+}
 
 pub struct Transaction;
 
