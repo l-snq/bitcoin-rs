@@ -1,6 +1,9 @@
 use uint::construct_uint;
+use serde::{Deserialize, Serialize};
 
 construct_uint! {
+    // construct an unsignedc 256 bit integer. Consisting of 4 x 64 bit words
+    #[derive(Serialize, Deserialize)]
     pub struct U256(4);
 }
 

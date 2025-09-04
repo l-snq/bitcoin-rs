@@ -1,9 +1,9 @@
 use crate::U256;
 use sha256::digest;
-use serde::Serialize;
+use serde::{Deserialize, Serialize};
 use std::fmt;
 
-#[derive(Clone, Copy, Serialize)]
+#[derive(Clone, Copy, Deserialize, Serialize)]
 pub struct Hash(U256);
 
 impl fmt::Display for Hash {
@@ -11,6 +11,7 @@ impl fmt::Display for Hash {
         write!(f, "{:x}", self.0)
     }
 }
+
 impl Hash {
     // hash stuff that can be serde serialized via ciborium
     pub fn hash<T: serde::Serialize>(data: &T) -> Self {
